@@ -1,0 +1,4 @@
+venv
+.vscode
+.mypy_cache
+module1/.mypy_cache

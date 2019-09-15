@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/leafletEmbed.js') }}"></script>
+    <style>
+        #myMap {
+            height: 500px;
+            max-width: 800;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row m-3">
+            <h1>Hello Peter.</h1>
+            <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#entryModal">
+                Enter your data
+            </button>
+            <button type="button" class="btn btn-primary ml-2">
+                Back
+            </button>
+        </div>
+        <div id="myMap"></div>
+    </div>
+
+    <!-- entryModal -->
+    <div class="modal fade" id="entryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="Provider">Provider Title:</label>
+                            <input type="text" class="form-control" id="Provider"
+                                placeholder="Enter Your Provider Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="Equipment">Equipment:</label>
+                            <input type="text" class="form-control" id="Equipment" placeholder="Equipment Description">
+                        </div>
+                        <div class="form-group">
+                            <label for="Freq">Frequency:</label>
+                            <input type="number" class="form-control" id="Freq" placeholder="Frequency (in Ghz)">
+                        </div>
+                        <div class="form-group">
+                            <label for="Bandwith">Bandwith per Customer</label>
+                            <select class="form-control" id="Bandwith">
+                                <option>10 meg</option>
+                                <option>20 meg</option>
+                                <option>30 meg</option>
+                                <option>40 meg</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Price">Price</label>
+                            <input type="number" class="form-control" id="Price" placeholder="Monthly price (in $)">
+                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+<script>
+    initmap(iconURL="{{ url_for('static', filename='images/antenna.png') }}");
+</script>
+
+</html>
