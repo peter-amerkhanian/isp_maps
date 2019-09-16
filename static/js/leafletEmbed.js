@@ -34,7 +34,10 @@ function initMap(iconURL) {
 
     // Put down marker at User location
     map.on('locationfound', onLocationFound);
+}
 
+function initDraw() {
+    // Initialise the FeatureGroup to store editable layers
     var editableLayers = new L.FeatureGroup();
     map.addLayer(editableLayers);
 
